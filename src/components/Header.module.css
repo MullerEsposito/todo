@@ -1,23 +1,23 @@
-header {
+.header {
   display: flex;
   flex-direction: column;
   background-color: var(--gray-700);
   height: 12.5rem;
 }
 
-header > .logo {
+.header > .logo {
   width: 7.87rem;
   margin: 4.5rem auto;
 }
 
-header > .newTaskBox {
+.header > .newTaskBox {
   display: flex;
   margin: -1.100rem auto 0 auto;
   width: 39.85rem;
   height: 3.375rem;
 }
 
-header > .newTaskBox > input {
+.header > .newTaskBox > input {
   width: 39.85rem;
   height: 3.375rem;
   
@@ -31,12 +31,12 @@ header > .newTaskBox > input {
   line-height: 140%;
 }
 
-header > .newTaskBox > input:focus {
+.header > .newTaskBox > input:focus {
   border-color: var(--purple-dark);
   outline: none;
 }
 
-header > .newTaskBox > button {
+.header > .newTaskBox > button {
   display: flex;
   width: 5.625rem;
   margin-left: 0.5rem;
@@ -56,13 +56,13 @@ header > .newTaskBox > button {
   
 }
 
-header > .newTaskBox > button:hover {
+.header > .newTaskBox > button:hover {
   background-color: var(--blue);
 }
-header > .newTaskBox > button:focus {
+.header > .newTaskBox > button:focus {
   border-color: var(--purple-dark);
 }
 
-header > .newTaskBox > button > svg {
+.header > .newTaskBox > button > svg {
   margin-left: 3px;
 }
