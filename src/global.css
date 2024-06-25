@@ -23,9 +23,12 @@
 
 body {
   background-color: var(--gray-600);
+  color: var(--gray-100);
+  -webkit-font-smoothing: antialiased;
 }
 
 body, input, textarea, button {
   font-family: 'Inter', sans-serif;
-  font-weight: normal;
+  font-weight: 400;
+  font-size: 1rem;
 }
