@@ -25,6 +25,8 @@
   width: 1.2rem;
   border-radius: 50%;
   border: solid 2px var(--blue);
+
+  transition: 0.2s;
 }
 
 .container > .inputCheck::after {
