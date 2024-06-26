@@ -14,7 +14,6 @@
   margin-top: 0.75rem;
 }
 
-
 .container > input ~ * {
   margin-left: 0.75rem;
 } 
@@ -22,4 +21,9 @@
 .container > label {
   color: var(--gray-100);
   font-size: 0.75rem;
+}
+
+.container > .taskChecked {
+  text-decoration: line-through;
+  color: var(--gray-300);
 }
