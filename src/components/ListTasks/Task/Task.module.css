@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+
+  background-color: var(--gray-400);
+  border-radius: 8px;
+
+  padding: 1rem;
+}
+
+.container ~ .container {
+  margin-top: 0.75rem;
+}
+
+
+.container > input ~ * {
+  margin-left: 0.75rem;
+} 
+
+.container > label {
+  color: var(--gray-100);
+  font-size: 0.75rem;
+}
