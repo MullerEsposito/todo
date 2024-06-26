@@ -1,0 +1,60 @@
+.container {
+  position: relative;
+
+}
+
+.container > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 1.2rem;
+  width: 1.2rem;
+
+  opacity: 0;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.container > .inputCheck {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+  border: solid 2px var(--blue);
+}
+
+.container > .inputCheck::after {
+  content: "";
+  position: absolute;
+  display: none;
+
+  left: 0.3rem;
+  top: 0.125rem;
+  width: 4px;
+  height: 8px;
+  border: solid var(--gray-100);
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+}
+
+.container > input:hover ~ .inputCheck {
+  border-color: var(--blue-dark);
+  background-color: #1E6F9F80;
+}
+
+.container > input:checked ~ .inputCheck {
+  border-color: var(--purple-dark);
+  background-color: var(--purple-dark);
+}
+.container > input:checked:checked ~ .inputCheck::after {
+  display: block;
+}
+
+.container > input:checked:hover ~ .inputCheck {
+  border-color: var(--purple);
+  background-color: var(--purple);
+}
