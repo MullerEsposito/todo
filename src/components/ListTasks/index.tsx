@@ -1,24 +1,22 @@
 import { ClipboardText } from "@phosphor-icons/react";
 import styles from "./index.module.css";
-import { useState } from "react";
 import { Task } from "./Task";
 
-export function ListTasks() {
-  // const [tasks, setTasks] = useState<Task[]>([]);
-  const tasks: Task[] = [];
+interface ListTasksProps {
+  tasks: Task[];
+  onDeleteTask: (taskId: string) => void;
+  onChangeTask: (taskId: string) => void;
+}
+
+export function ListTasks({ tasks, onDeleteTask, onChangeTask }: ListTasksProps) {
   const root = document.documentElement;
 
   const blueColor = getComputedStyle(root).getPropertyValue('--blue').trim();
   const purpleColor = getComputedStyle(root).getPropertyValue('--purple').trim();
 
-  tasks.push({id: 1, content: "Tarefa 1"});
-  tasks.push({id: 2, content: "Tarefa 2"});
-  tasks.push({id: 3, content: "Tarefa 3"});
-
-  type Task = {
-    id: number;
-    content: string;
-  }
+  const completedTasksTotal = tasks.reduce((total, task) => {
+    return task.isCompleted ? total + 1 : total;
+  }, 0);
 
   return (
     <div className={styles.container}>
@@ -29,14 +27,19 @@ export function ListTasks() {
         </div>
         <div className={styles.info}>
           <p style={{ color: purpleColor }}>Concluídas</p>
-          <span>0</span>
+          <span>{ completedTasksTotal || 0}</span>
         </div>
       </header>
 
       <main className={styles.main}>
         {tasks.length ? (
-          tasks.map((task: Task) => (
-            <Task key={task.id} id={task.id} content={task.content} />
+          tasks.map(task => (
+            <Task 
+              key={task.id} 
+              task={task} 
+              onDeleteTask={onDeleteTask} 
+              onChangeTask={onChangeTask}
+            />
           ))
         ):(
           <>
