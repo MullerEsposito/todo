@@ -1,11 +1,15 @@
 import { Trash } from "@phosphor-icons/react";
 
 import styles from "./TrashButton.module.css";
+import { ButtonHTMLAttributes } from "react";
 
-export function TrashButton() {
+interface TrashButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+}
+
+export function TrashButton({ ...props }: TrashButtonProps) {
   return (
-    <div className={styles.container}>
+    <button className={styles.container} {...props}>
       <Trash size={14} />
-    </div>
+    </button>
   )
 }
