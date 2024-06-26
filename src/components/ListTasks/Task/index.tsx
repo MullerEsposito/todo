@@ -3,16 +3,24 @@ import { RoundedInput } from "./RoundedInput";
 import { TrashButton } from "./TrashButton";
 import { useState } from "react";
 
-interface TaskProps {
-  id: number;
+export type Task = {
+  id: string;
   content: string;
+  isCompleted: boolean;
 }
 
-export function Task({ id, content }: TaskProps) {
+interface TaskProps {
+  task: Task;
+  onDeleteTask: (taskId: string) => void;
+  onChangeTask: (taskId: string) => void;
+}
+
+export function Task({ task: { id, content }, onDeleteTask, onChangeTask }: TaskProps) {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleIsChecked = () => {
-    setIsChecked(oldIsChecked => !oldIsChecked);
+  const handleIsChecked = (_isChecked: boolean) => {
+    setIsChecked(_isChecked);
+    onChangeTask(id);
   }
 
   return (
@@ -21,7 +29,7 @@ export function Task({ id, content }: TaskProps) {
       <label htmlFor={`task${id}`} className={isChecked ? styles.taskChecked : ""}>
         { content }
       </label>
-      <TrashButton />
+      <TrashButton onClick={() => onDeleteTask(id)} />
     </div>
   )
 }

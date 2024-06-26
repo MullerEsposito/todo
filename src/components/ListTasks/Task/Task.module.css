@@ -14,13 +14,14 @@
   margin-top: 0.75rem;
 }
 
-.container > input ~ * {
-  margin-left: 0.75rem;
-} 
-
 .container > label {
   color: var(--gray-100);
   font-size: 0.75rem;
+  margin-left: 1.75rem;
+}
+
+.container > label ~ button {
+  margin-left: 0.75rem;
 }
 
 .container > .taskChecked {
