@@ -3,7 +3,7 @@ import styles from "./RoundedInput.module.css"
 
 interface RoundedInputProps extends InputHTMLAttributes<HTMLInputElement> {
   isChecked: boolean;
-  handleIsChecked: () => void;
+  handleIsChecked: (isChecked: boolean) => void;
 }
 
 export function RoundedInput({ id, isChecked, handleIsChecked }: RoundedInputProps) {
@@ -13,7 +13,7 @@ export function RoundedInput({ id, isChecked, handleIsChecked }: RoundedInputPro
         type="checkbox" 
         id={`task${id}`} 
         checked={isChecked} 
-        onClick={handleIsChecked}
+        onChange={e => handleIsChecked(e.target.checked)}
       />
       <span className={styles.inputCheck} />
     </div>
